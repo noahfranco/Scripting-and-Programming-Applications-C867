@@ -1,78 +1,51 @@
 #include <iostream>
 #include <string>
-// #include “../degree.h”
+
+// #include “degree.h”;
 
 using namespace std;
 
 class Student {
     // constructor 
     public:
-        int studentId;
+        string studentId;
         string firstName;
         string lastName;    
         string emailAddress;
         int age;
-        // int daysInCourse[1];
+        int daysInCourse[3];
         string degreeProgram;
 
         // accessor/getter functions
 
-        int fetchStudentId() {
-            return studentId;
-        }
+        int fetchStudentId();
 
-        string fetchFirstName() {
-            return firstName;
-        }
+        string fetchFirstName();
 
-        string fetchLastName() {
-            return lastName;
-        }
+        string fetchLastName();
 
-        string fetchEmailAddress() {
-            return emailAddress;
-        }
+        string fetchEmailAddress();
 
-        int fetchAge() {
-            return age;
-        }
+        int fetchAge();
 
-        string fetchDegreeProgram() {
-            return degreeProgram;
-        }
+        string fetchDegreeProgram();
 
         // mutator/setter functions
 
-        void setStudentId(int data) {
-            studentId = data;
-        }
+        void setStudentId(string data);
 
-        void setFirstName(string data) {
-            firstName = data;
-        }
+        void setFirstName(string data);
 
-        void setLastName(string data) {
-            lastName = data;
-        }
+        void setLastName(string data);
 
-        void setEmailAddress(string data) {
-            emailAddress = data;
-        }
+        void setEmailAddress(string data);
 
-        void setAge(int data) {
-            age = data;
-        }
+        void setAge(int data);
 
-        void setDegreeProgram(string data) {
-            degreeProgram = data;
-        }
+        void setDegreeProgram(string data);
 
-        // print function
-        void printIntType(int data) {
-            cout << data << endl;
-        }
+        // print functions
+        void printIntType(int data);
 
-        void printStringType(string data) {
-            cout << data << endl;
-        }
+        void printStringType(string data);
 };
