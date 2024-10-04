@@ -1,51 +1,42 @@
 #include <iostream>
 #include <string>
 
-// #include “degree.h”;
+// #include "../degree.h"
 
 using namespace std;
 
+// D.1
 class Student {
     // constructor 
-    public:
+    private:
         string studentId;
         string firstName;
         string lastName;    
         string emailAddress;
         int age;
         int daysInCourse[3];
-        string degreeProgram;
+        // string degreeProgram;
+        int degreeProgram;
+
+    public:
+        // constructor declaration
+        Student(string studentId, string firstName, string lastName, string email, int age, int daysInCourseOne, int daysInCourseTwo, int daysInCourseThree, int degree);
+
+        // destructor is not needed since daysInCourse is not set dynamically
+        // ~Student() {} 
 
         // accessor/getter functions
+        string fetchStudent(string data);
 
-        int fetchStudentId();
+        double fetchStudentAvgDaysInCourse(string data);
 
-        string fetchFirstName();
+        void fetchByDegreeProgram(int data);
 
-        string fetchLastName();
-
-        string fetchEmailAddress();
-
-        int fetchAge();
-
-        string fetchDegreeProgram();
+        string formatDegreeProgram();
 
         // mutator/setter functions
+        bool setStudent(string studentId);
 
-        void setStudentId(string data);
-
-        void setFirstName(string data);
-
-        void setLastName(string data);
-
-        void setEmailAddress(string data);
-
-        void setAge(int data);
-
-        void setDegreeProgram(string data);
-
-        // print functions
-        void printIntType(int data);
-
-        void printStringType(string data);
+        // print function
+        void print();
 };

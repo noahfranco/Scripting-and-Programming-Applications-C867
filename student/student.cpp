@@ -1,66 +1,88 @@
 #include <iostream>
 #include <string>
-#include "student.h";
+#include "student.h"
+#include "../degree.h"
 
 using namespace std;
 
+// D.2.d
+// constructor declaration
+Student::Student(string studentId, string firstName, string lastName, string email, int age, int daysInCourseOne, int daysInCourseTwo, int daysInCourseThree, int degree) {
+    this->studentId = studentId;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->emailAddress = email;
+    this->age = age;
+    // is there a cleaner way to do this by storing each prev value in an array?
+    this->daysInCourse[0] = daysInCourseOne;
+    this->daysInCourse[1] = daysInCourseTwo;
+    this->daysInCourse[2] = daysInCourseThree;
+    this->degreeProgram = degree;
+
+}
+
+// D.2.a
 // accessor/getter functions
+string Student::fetchStudent(string data) {
+    if (data == "email") {
+        return this->emailAddress;
+    } else if (data == "studentId") {
+        return this->studentId;
+    }
 
-int Student::fetchStudentId() {
-    return studentId;
+    return 0;
 }
 
-string Student::fetchFirstName() {
-    return firstName;
+double Student::fetchStudentAvgDaysInCourse(string data) {
+    // do I need this if condition since we're in a for loop? - E.3.d: "The student is identified by the studentID parameter"
+    if (this->studentId == data) {
+        // find avg logic
+        double sum = 0;
+        for (int i = 0; i < 3; i++) {
+             sum += daysInCourse[i];
+        }
+    
+        return sum / 3;
+    }
+
+    return 0;
 }
 
-string Student::fetchLastName() {
-    return lastName;
+void Student::fetchByDegreeProgram(int data) {
+    if (this->degreeProgram == data) {
+        print();
+    }
 }
 
-string Student::fetchEmailAddress() {
-    return emailAddress;
+string Student::formatDegreeProgram() {
+    switch (this->degreeProgram)
+    {
+    case SECURITY:
+        return "SECURITY";
+    case NETWORK:
+        return "NETWORK";
+    case SOFTWARE:
+        return "SOFTWARE";
+    default:
+        break;
+    }
+
+    return "";
 }
 
-int Student::fetchAge() {
-    return age;
-}
-
-string Student::fetchDegreeProgram() {
-    return degreeProgram;
-}
-
+// D.2.b
 // mutator/setter functions
+bool Student::setStudent(string data) {
+    if (this->studentId == data) {
+        return true;
+    }
 
-void Student::setStudentId(string data) {
-    studentId = data;
+    return false;
 }
 
-void Student::setFirstName(string data) {
-    firstName = data;
-}
+// D.2.e
+void Student::print() {
+    string degree = formatDegreeProgram();
 
-void Student::setLastName(string data) {
-    lastName = data;
-}
-
-void Student::setEmailAddress(string data) {
-    emailAddress = data;
-}
-
-void Student::setAge(int data) {
-    age = data;
-}
-
-void Student::setDegreeProgram(string data) {
-    degreeProgram = data;
-}
-
-// print functions
-void Student::printIntType(int data) {
-    cout << data << endl;
-}
-
-void Student::printStringType(string data) {
-    cout << data << endl;
+    cout << this->studentId << " " << "First Name: " << this->firstName << " " << "Last Name: " << this->lastName << " " << "Age: " << this->age << " " << "Days in Course: " << "{" << this->daysInCourse[0] << "," << this->daysInCourse[1] << "," << this->daysInCourse[2] << "}" << " " << "Degree Program: " << degree << endl;
 }

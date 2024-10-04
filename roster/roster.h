@@ -1,14 +1,32 @@
 #include <iostream>
 #include <string>
+#include "../student/student.h"
+
+// #include "../degree.h"
 
 using namespace std;
-
 class Roster {
     public:
-        int *classRosterArray;
+        Student* classRosterArray[5];
 
-        // void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, int degreeProgram);
-        void add(string studentID, string firstName);
+        ~Roster() {
+            for (int i = 0; i < 5; i++) {
+                if (classRosterArray[i] != nullptr) {
+                    delete classRosterArray[i];
+                    cout << "Student record deleted" << endl;
+                }
+            }
+        }   
 
-        void printAll(string data);
+        void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourseOne, int daysInCourseTwo, int daysInCourseThree, int degree);
+
+        void remove(string data);
+
+        void printAll();
+
+        void printAverageDaysInCourse(string studentId);
+
+        void printInvalidEmails();
+
+        void printByDegreeProgram(int data);
 };    
