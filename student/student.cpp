@@ -84,5 +84,5 @@ bool Student::setStudent(string data) {
 void Student::print() {
     string degree = formatDegreeProgram();
 
-    cout << this->studentId << " " << "First Name: " << this->firstName << " " << "Last Name: " << this->lastName << " " << "Age: " << this->age << " " << "Days in Course: " << "{" << this->daysInCourse[0] << "," << this->daysInCourse[1] << "," << this->daysInCourse[2] << "}" << " " << "Degree Program: " << degree << endl;
+    cout << this->studentId << "\t" << "First Name: " << this->firstName << "\t" << "Last Name: " << this->lastName << "\t" << "Age: " << this->age <<  "\tDays in Course: " << "{" << this->daysInCourse[0] << "," << this->daysInCourse[1] << "," << this->daysInCourse[2] << "}" << " " << "Degree Program: " << degree << endl;
 }

@@ -9,7 +9,7 @@ void programDetails() {
     cout << "Course Title: Scripting and Programming - Applications - C867" << endl;
     cout << "Language: C++" << endl;
     cout << "Student ID: 011295092" << endl;
-    cout << "Student Name: Noah Franco" << endl;
+    cout << "Student Name: Noah Franco" << "\n" << endl;
 }
 
 int main() {
